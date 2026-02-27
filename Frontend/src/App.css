@@ -67,6 +67,7 @@ a {
   border: 1px solid #101214;
   font-weight: 600;
   transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 .btn.primary {

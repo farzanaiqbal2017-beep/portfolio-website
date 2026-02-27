@@ -282,7 +282,7 @@ function App() {
             className="card form"
             name="contact"
             method="POST"
-            action="/thank-you"
+            action="/thank-you.html"
             data-netlify="true"
             netlify-honeypot="bot-field"
           >
