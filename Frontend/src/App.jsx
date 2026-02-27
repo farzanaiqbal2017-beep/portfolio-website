@@ -278,24 +278,36 @@ function App() {
             <p className="muted">nasrinfarzana@email.com</p>
             <p className="muted">California, USA</p>
           </div>
-          <form className="card form">
+          <form
+            className="card form"
+            name="contact"
+            method="POST"
+            action="/thank-you"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+          >
+            <input type="hidden" name="form-name" value="contact" />
+            <label className="sr-only">
+              Don&apos;t fill this out if you&apos;re human:
+              <input name="bot-field" />
+            </label>
             <label>
               Name
-              <input type="text" placeholder="Your name" />
+              <input type="text" name="name" placeholder="Your name" required />
             </label>
             <label>
               Email
-              <input type="email" placeholder="you@email.com" />
+              <input type="email" name="email" placeholder="you@email.com" required />
             </label>
             <label>
               Subject
-              <input type="text" placeholder="Project, collaboration, etc." />
+              <input type="text" name="subject" placeholder="Project, collaboration, etc." />
             </label>
             <label>
               Message
-              <textarea rows="4" placeholder="Write your message..." />
+              <textarea name="message" rows="4" placeholder="Write your message..." required />
             </label>
-            <button className="btn primary" type="button">Send Message</button>
+            <button className="btn primary" type="submit">Send Message</button>
           </form>
         </div>
       </section>
