@@ -124,6 +124,23 @@ const posts = [
 ]
 
 function App() {
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    const form = event.target
+    const formData = new FormData(form)
+
+    try {
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString(),
+      })
+      window.location.assign('/thank-you.html')
+    } catch (error) {
+      window.alert('Submission failed. Please try again.')
+    }
+  }
+
   return (
     <div className="page">
       <header className="hero">
@@ -285,6 +302,7 @@ function App() {
             action="/thank-you.html"
             data-netlify="true"
             netlify-honeypot="bot-field"
+            onSubmit={handleSubmit}
           >
             <input type="hidden" name="form-name" value="contact" />
             <label className="sr-only">
